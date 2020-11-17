@@ -1,0 +1,20 @@
+import requests 
+
+
+url = "https://dallas.craigslist.org/search/sof"
+
+
+response = requests.get(url)
+
+
+#print(response)
+
+
+data = response.text
+
+
+#print(data)
+
+
+for tag in tags:
+    print(tag.get('href'))
