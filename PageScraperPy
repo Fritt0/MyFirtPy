@@ -1,20 +1,14 @@
-import requests 
+#!/usr/bin/env python3
 
+import requests
+from bs4 import BeautifulSoup
 
-url = "https://dallas.craigslist.org/search/sof"
-
+url = 'https://www.highlandparkwhisky.com/en-us'
 
 response = requests.get(url)
 
+soup = BeautifulSoup(response.text, 'html.parser')
 
-#print(response)
-
-
-data = response.text
-
-
-#print(data)
-
-
-for tag in tags:
-    print(tag.get('href'))
+print("Title is : ")
+for title in soup.find_all('title'):
+    print(title.get_text())
