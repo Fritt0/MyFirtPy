@@ -2,6 +2,7 @@
 
 import requests
 from bs4 import BeautifulSoup
+import sys
 
 url = 'https://www.highlandparkwhisky.com/en-us'
 
@@ -12,3 +13,10 @@ soup = BeautifulSoup(response.text, 'html.parser')
 print("Title is : ")
 for title in soup.find_all('title'):
     print(title.get_text())
+
+def print_to_stdout(*a):
+
+
+    print(*a, file = sys.stdout)
+
+print_to_stdout("THIS IS VIKING HARMONY")
